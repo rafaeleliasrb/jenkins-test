@@ -9,6 +9,12 @@ pipeline {
         }
 
         stage('Tests') {
+            agent {
+                docker {
+                    image 'python:3.7'
+                    args '--network jenkins'
+                }
+            }
             agent { docker 'python:3.7' }
             
             steps {
