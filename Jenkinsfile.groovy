@@ -13,7 +13,7 @@ pipeline {
             
             steps {
                 sh 'python --version'
-                sh 'pip3 install -r requirements.txt --user'
+                sh 'pip3 install -r requirements.txt --user 0:0'
                 sh 'python ./test.py'
             }
         }
