@@ -1,6 +1,6 @@
 import pysftp
 
-myHostname = "0.0.0.0"
+myHostname = "172.20.0.1"
 myUsername = "foo"
 myPassword = "pass"
 
