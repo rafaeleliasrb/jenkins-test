@@ -9,12 +9,18 @@ pipeline {
         }
 
         stage('Tests') {
-            agent { docker 'python:3.7' }
+            agent { 
+                docker {
+                    label "docker && linux" 
+                    image "python:3.7"
+                }
+            }
             
             steps {
-                sh 'python --version'
-                sh 'pip3 install -r requirements.txt --user 0:0'
-                sh 'python ./test.py'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                  sh "pip install -r requirements.txt --user"
+                  sh 'python ./test.py'
+                }                
             }
         }
     }
