@@ -12,7 +12,7 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.7'
-                    args '--network jenkins'
+                    args '-m http.server --bind 0.0.0.0'
                 }
             }
             
