@@ -9,12 +9,7 @@ pipeline {
         }
 
         stage('Tests') {
-            agent { 
-                docker {
-                    label "docker && linux" 
-                    image "python:3.7"
-                }
-            }
+            agent { docker 'python:3.7' }
             
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
