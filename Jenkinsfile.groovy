@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clean workspace') {
             steps {
-                echo 'Building..'
+                cleanWs()
             }
         }
-        stage('Test') {
+
+        stage('Tests') {
+            agent { docker 'python:3.7' }
+            
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'python --version'
+                sh 'pip3 -r requirements.txt'
+                sh 'python ./test.py'
             }
         }
     }
