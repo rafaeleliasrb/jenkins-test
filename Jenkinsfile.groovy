@@ -15,7 +15,6 @@ pipeline {
                     args '--network jenkins'
                 }
             }
-            agent { docker 'python:3.7' }
             
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
