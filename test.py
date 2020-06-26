@@ -1,14 +1,15 @@
 import pysftp
 
-myHostname = "0.0.0.0"
-myUsername = "foo"
-myPassword = "pass"
+hostname = "sftp-docker"
+username = "foo"
+password = "pass"
+port = 22
 
 cnopts = pysftp.CnOpts(knownhosts='known_hosts')
 #cn_opts = pysftp.CnOpts()
 #cn_opts.hostkeys = None
 
-with pysftp.Connection(host=myHostname, username=myUsername, password=myPassword, port=2222, cnopts=cn_opts) as sftp:
+with pysftp.Connection(host=hostname, username=username, password=password, port=port, cnopts=cn_opts) as sftp:
     print ("Connection succesfully stablished ... ")
 
     # Switch to a remote directory
