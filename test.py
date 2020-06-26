@@ -4,8 +4,9 @@ myHostname = "0.0.0.0"
 myUsername = "foo"
 myPassword = "pass"
 
-cn_opts = pysftp.CnOpts()
-cn_opts.hostkeys = None
+cnopts = pysftp.CnOpts(knownhosts='known_hosts')
+#cn_opts = pysftp.CnOpts()
+#cn_opts.hostkeys = None
 
 with pysftp.Connection(host=myHostname, username=myUsername, password=myPassword, port=2222, cnopts=cn_opts) as sftp:
     print ("Connection succesfully stablished ... ")
