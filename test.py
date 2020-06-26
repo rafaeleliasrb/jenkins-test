@@ -1,6 +1,6 @@
 import pysftp
 
-hostname = "sftp-docker"
+hostname = "172.20.0.4"
 username = "foo"
 password = "pass"
 port = 22
