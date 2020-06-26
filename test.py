@@ -5,7 +5,7 @@ username = "foo"
 password = "pass"
 port = 22
 
-cnopts = pysftp.CnOpts(knownhosts='known_hosts')
+cn_opts = pysftp.CnOpts(knownhosts='known_hosts')
 #cn_opts = pysftp.CnOpts()
 #cn_opts.hostkeys = None
 
