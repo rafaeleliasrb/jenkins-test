@@ -7,6 +7,9 @@ local_path = 'local-backup'
 if not os.path.exists(local_path):
     os.mkdir(local_path)
 
+    
+print("hostname:" + os.environ['SFTP_HOSTNAME'])
+print("username: " + os.environ['SFTP_USERNAME'])
 hostname = os.environ['SFTP_HOSTNAME']
 username = os.environ['SFTP_USERNAME']
 password = os.environ['SFTP_PASSWORD']
