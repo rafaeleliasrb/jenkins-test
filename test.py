@@ -2,14 +2,15 @@ import pysftp
 import glob
 import os
 import pandas as pd
+import socket
 
 local_path = 'local-backup'
 if not os.path.exists(local_path):
     os.mkdir(local_path)
 
-    
-print("hostname:" + os.environ['SFTP_HOSTNAME'])
-print("username: " + os.environ['SFTP_USERNAME'])
+ip_address = socket.gethostbyname(os.environ['SFTP_HOSTNAME'])
+print(ip_address)
+
 hostname = os.environ['SFTP_HOSTNAME']
 username = os.environ['SFTP_USERNAME']
 password = os.environ['SFTP_PASSWORD']
