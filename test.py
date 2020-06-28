@@ -7,10 +7,10 @@ local_path = 'local-backup'
 if not os.path.exists(local_path):
     os.mkdir(local_path)
 
-hostname = "jenkins_sftp_1"
-username = "foo"
-password = "pass"
-port = 22
+hostname = os.environ['SFTP_HOSTNAME']
+username = os.environ['SFTP_USERNAME']
+password = os.environ['SFTP_PASSWORD']
+port = os.environ['SFTP_PORT']
 
 cn_opts = pysftp.CnOpts()
 cn_opts.hostkeys = None
