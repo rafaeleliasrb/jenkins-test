@@ -7,7 +7,7 @@ local_path = 'local-backup'
 if not os.path.exists(local_path):
     os.mkdir(local_path)
 
-hostname = "172.20.0.4"
+hostname = "172.20.0.2"
 username = "foo"
 password = "pass"
 port = 22
