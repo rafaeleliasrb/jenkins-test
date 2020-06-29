@@ -10,14 +10,10 @@ def createLocalDirectory():
         os.mkdir(DIRECTORY)
 
 def downloadCSVFilesFromSFTP():
-    hostname = os.environ['SFTP_HOSTNAME']
-    username = os.environ['SFTP_USERNAME']
-    password = os.environ['SFTP_PASSWORD']
-    port = os.environ['SFTP_PORT']
-
     cn_opts = pysftp.CnOpts()
     cn_opts.hostkeys = None
-    with pysftp.Connection(host=hostname, username=username, password=password, port=int(port), cnopts=cn_opts) as sftp:
+    with pysftp.Connection(host=os.environ['SFTP_HOSTNAME'], username=os.environ['SFTP_USERNAME'], password=os.environ['SFTP_PASSWORD'], 
+                           port=int(os.environ['SFTP_PORT']), cnopts=cn_opts) as sftp:
         sftp.get_d('upload', DIRECTORY, preserve_mtime=True)
 
 def concatCSVFilesIntoNewCSV():
