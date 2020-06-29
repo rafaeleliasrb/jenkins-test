@@ -3,10 +3,11 @@ import glob
 import os
 import pandas as pd
 
+DIRECTORY = 'local-backup'
+
 def createLocalDirectory():
-    local_path = 'local-backup'
-    if not os.path.exists(local_path):
-        os.mkdir(local_path)
+    if not os.path.exists(DIRECTORY):
+        os.mkdir(DIRECTORY)
 
 def downloadCSVFilesFromSFTP():
     hostname = os.environ['SFTP_HOSTNAME']
@@ -17,12 +18,12 @@ def downloadCSVFilesFromSFTP():
     cn_opts = pysftp.CnOpts()
     cn_opts.hostkeys = None
     with pysftp.Connection(host=hostname, username=username, password=password, port=int(port), cnopts=cn_opts) as sftp:
-        sftp.get_d('upload', local_path, preserve_mtime=True)
+        sftp.get_d('upload', DIRECTORY, preserve_mtime=True)
 
 def concatCSVFilesIntoNewCSV():
-    all_files = glob.glob(os.path.join(local_path, "*.csv"))
+    all_files = glob.glob(os.path.join(DIRECTORY, "*.csv"))
     df_concat_report = pd.concat((pd.read_csv(f, delimiter = ';') for f in all_files))
-    df_concat_report.to_csv(os.path.join(local_path, 'cancel_report.csv'), index = False, header=True, sep=";")
+    df_concat_report.to_csv(os.path.join(DIRECTORY, 'cancel_report.csv'), index = False, header=True, sep=";")
 
 if __name__ == "__main__":
     createLocalDirectory()
