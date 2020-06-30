@@ -25,6 +25,7 @@ pipeline {
             
             steps {
                 script {
+                    sh 'echo ${env.WORKSPACE}'
                     sh "pip install -r requirements.txt --user"
                     sh 'python ./test.py'
                 }
@@ -33,6 +34,7 @@ pipeline {
 
         stage("Filtering valid cancelations...") {
             steps {
+                sh 'echo ${env.WORKSPACE}'
                 sh'''#!/bin/bash -e
                     ls -lh
                 '''
