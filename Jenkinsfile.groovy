@@ -34,17 +34,11 @@ pipeline {
             }
         }
 
-        stage('Upload a CSV') {
+        stage("Filtering valid cancelations..."){
             steps {
-                script {
-                    def inputFile = input message: 'Upload file', parameters: [file(name: "cancel_report.csv", description: 'Upload only CSV file')]
-                    echo "FILE PATH: '${inputFile}'"
-                    def filePath = "${inputFile}"
-                    //saves the file on the workspace
-                    sh "cat ${filePath} > ${FTP_FILE}"
-                    //delete the uploaded file
-                    // inputFile.delete()
-                }
+                sh'''#!/bin/bash -e
+                    head -n 1 ${FTP_FILE}
+                '''
             }
         }
         
