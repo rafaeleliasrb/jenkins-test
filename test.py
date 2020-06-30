@@ -19,7 +19,7 @@ def downloadCSVFilesFromSFTP():
 def concatCSVFilesIntoNewCSV():
     all_files = glob.glob(os.path.join(DIRECTORY, "*.csv"))
     df_concat_report = pd.concat((pd.read_csv(f, delimiter = ';') for f in all_files))
-    df_concat_report.to_csv(os.path.join(DIRECTORY, 'cancel_report.csv'), index = False, header=True, sep=";")
+    df_concat_report.to_csv(os.environ['FTP_FILE'], index = False, header=True, sep=";")
 
 if __name__ == "__main__":
     createLocalDirectory()
