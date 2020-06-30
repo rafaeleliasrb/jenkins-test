@@ -3,7 +3,7 @@ import glob
 import os
 import pandas as pd
 
-DIRECTORY = 'local-backup'
+DIRECTORY = os.environ['DIRECTORY']
 
 def createLocalDirectory():
     if not os.path.exists(DIRECTORY):
