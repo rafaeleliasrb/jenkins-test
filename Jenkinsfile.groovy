@@ -12,7 +12,7 @@ pipeline {
             }
             
             environment {
-                HOME = ${env.WORKSPACE}
+                HOME = "${env.WORKSPACE}"
                 SFTP_USERNAME = "foo"
                 SFTP_PASSWORD = "pass"
                 SFTP_HOSTNAME = "sftp"
