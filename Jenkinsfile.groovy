@@ -36,6 +36,7 @@ pipeline {
             steps {
                 sh'''#!/bin/bash -e
                     ls -lh
+                    head -n 1 ftp_data.csv
                 '''
             }
         }  
