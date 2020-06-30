@@ -6,6 +6,7 @@ import pandas as pd
 DIRECTORY = os.environ['DIRECTORY']
 
 def createLocalDirectory():
+    println(os.environ['HOME'])
     if not os.path.exists(DIRECTORY):
         os.mkdir(DIRECTORY)
 
