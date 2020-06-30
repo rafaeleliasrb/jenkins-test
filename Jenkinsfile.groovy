@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         FILTERED_FILE="./filtered_data.cvs"
-        FTP_FILE="./ftp_data.cvs"
+        FTP_FILE="./ftp_data.csv"
     }
     stages {
         stage("Download cancelation file") {
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 sh'''#!/bin/bash -e
                     ls -lh
-                    head -n 1 ./ftp_data.csv
+                    head -n 1 ftp_data.csv
                 '''
             }
         }  
