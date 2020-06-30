@@ -1,8 +1,7 @@
 pipeline {
     agent any
 
-    stages {
-        options { timestamps () }
+    options { timestamps () }
     environment {
         FILTERED_FILE="./filtered_data.cvs"
         FTP_FILE="./ftp_data.cvs"
@@ -25,7 +24,7 @@ pipeline {
                 DIRECTORY="local-directory"
             }
             
-            steps{
+            steps {
                 script {
                     sendMsgToSlack("Begin the cancellation process...")
                     sh "pip install -r requirements.txt --user"
@@ -34,13 +33,12 @@ pipeline {
             }
         }
 
-        stage("Filtering valid cancelations..."){
+        stage("Filtering valid cancelations...") {
             steps {
                 sh'''#!/bin/bash -e
                     head -n 1 ${FTP_FILE}
                 '''
             }
-        }
-        
+        }  
     }
 }
