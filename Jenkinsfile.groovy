@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     environment {
         FILTERED_FILE="./filtered_data.cvs"
