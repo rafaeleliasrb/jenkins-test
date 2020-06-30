@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     environment {
         FILTERED_FILE="./filtered_data.cvs"
@@ -11,6 +11,7 @@ pipeline {
                 docker {
                     image 'python:3.7'
                     args '--network host'
+                    reuseNode true
                 }
             }
             
