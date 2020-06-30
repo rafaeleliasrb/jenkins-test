@@ -12,11 +12,10 @@ pipeline {
             }
             
             environment {
-                HOME = "${env.WORKSPACE}"
-                SFTP_USERNAME = "${env.SFTP_USERNAME}"
-                SFTP_PASSWORD = "${env.SFTP_PASSWORD}"
-                SFTP_HOSTNAME = "${env.SFTP_HOSTNAME}"
-                SFTP_PORT = "${env.SFTP_PORT}"
+                SFTP_USERNAME = "foo"
+                SFTP_PASSWORD = "pass"
+                SFTP_HOSTNAME = "sftp"
+                SFTP_PORT = "22"
             }
             
             steps {
