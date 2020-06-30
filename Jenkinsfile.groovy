@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    options { timestamps () }
     environment {
         FILTERED_FILE="./filtered_data.cvs"
         FTP_FILE="./ftp_data.cvs"
