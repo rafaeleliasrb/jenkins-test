@@ -34,7 +34,7 @@ pipeline {
         stage("Filtering valid cancelations...") {
             steps {
                 sh'''#!/bin/bash -e
-                    head -n 1 ${FTP_FILE}
+                    ls -lh
                 '''
             }
         }  
