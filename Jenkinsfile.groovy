@@ -25,7 +25,6 @@ pipeline {
             
             steps {
                 script {
-                    sendMsgToSlack("Begin the cancellation process...")
                     sh "pip install -r requirements.txt --user"
                     sh 'python ./test.py'
                 }
